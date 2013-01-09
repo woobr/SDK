@@ -8,20 +8,43 @@
        width:33px; height:33px; 
        border:1px solid #ccc;
        float:left;
+       text-align:center;
+       line-height:33px;
        }
+.sbox .on{
+       width:31px; height:31px; 
+       border:2px solid #cca;
+       float:left;
+       text-align:center;
+       line-height:31px;
+			}
+       
 .scolor{background:#eff; }     
-.sdokubox {  background:#fff; margin:0 auto; padding:0; border:1px solid #ccc; width:315px; height:315px; box-shadow: 3px 3px 10px 0 #CCC; }
+.sdokubox { display:none; background:#fff; margin:0 auto; padding:0; border:1px solid #ccc; width:315px; height:315px; box-shadow: 3px 3px 10px 0 #CCC; }
 
 </style>
 <script src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
 <script>
 	
 $(document).ready(function(){
-//	$(".sdokubox").slideDown();
+	$(".sdokubox .sbox").each(function(){	
+		$(this).html("1");
+	});
+	
+	$(".sdokubox").slideDown();
+	
 });
+
+$(function(){	
+	$(".sdokubox .sbox").click(function(){
+		var selbox = 	$(this);			
+		selbox.addClass("on");
+		$(".sdokubox .sbox").not(selbox).removeClass("on");
+	});	
+});	
 </script>
 </head>
-<body>
+<body ondragstart="return false" onselectstart="return false">
 
 <div class="sdokubox" >
 	<div class="sbox scolor"></div>	<div class="sbox scolor"></div>	<div class="sbox scolor"></div>	<div class="sbox"></div>	<div class="sbox"></div>
@@ -41,7 +64,7 @@ $(document).ready(function(){
 	<div class="sbox scolor"></div>	<div class="sbox scolor"></div>	<div class="sbox scolor"></div>	<div class="sbox"></div>	<div class="sbox"></div>
 	<div class="sbox"></div>	<div class="sbox scolor"></div>	<div class="sbox scolor"></div>	<div class="sbox scolor"></div>	
 	<div class="sbox scolor"></div>	<div class="sbox scolor"></div>	<div class="sbox scolor"></div>	<div class="sbox"></div>	<div class="sbox"></div>
-	<div class="sbox"></div>	<div class="sbox scolor"></div>	<div class="sbox scolor"></div>	<div class="sbox scolor"></div>	
+	<div class="sbox"></div>	<div class="sbox scolor"></div>	<div class="sbox scolor"></div>	<div class="sbox scolor">2</div>	
 </div>
 </body>
 </html>
